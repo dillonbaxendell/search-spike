@@ -8,8 +8,10 @@ function DataGrid() {
         { field: 'program', headerName: 'Program', width: 120},
         { field: 'city', headerName: 'City', width: 110 },
         { field: 'zip', headerName: 'Zip', width: 110 },
-        { field: 'zip', headerName: 'Zip', width: 110 },
-        { field: 'zip', headerName: 'Zip', width: 110 }
+        { field: 'parentProgram', headerName: 'Parent Program', width: 110 },
+        { field: 'familyRecoveryHousing', headerName: 'Family Recovery Housing', width: 110 },
+        { field: 'men', headerName: 'Men', width: 110 },
+        { field: 'Women', headerName: 'Women', width: 110 },
     ]
 
     const rows = [
