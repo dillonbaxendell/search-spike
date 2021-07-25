@@ -19,7 +19,7 @@ import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
 
-function MaterialTableExample () {
+function MaterialTableExample() {
 
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -43,6 +43,14 @@ function MaterialTableExample () {
 
 
   const columns = [
+    { field: 'program', title: 'Program', width: 120 },
+    { field: 'city', title: 'City', width: 110 },
+    { field: 'zip', title: 'Zip', width: 110 },
+    { field: 'parentProgram', title: 'Parent Program', width: 110 },
+    { field: 'familyRecoveryHousing', title: 'Family Recovery Housing', width: 110 },
+    { field: 'men', title: 'Men', width: 110 },
+    { field: 'women', title: 'Women', width: 110 },
+
     { title: 'Name', field: 'name' },
     { title: 'Surname', field: 'surname' },
     { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
@@ -56,23 +64,24 @@ function MaterialTableExample () {
   const data = [
     { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
     { name: 'Zerya Betul', surname: 'Baran', birthYear: 2017, birthCity: 34 },
+    { program: 'A Way Out Recovery', city: 'Shakopee', zip: 55379 - 1749, parentProgram: 'A Way Out Recovery', familyRecoveryHousing: false, men: true, women: true}
   ];
 
-    return (
-        <>
-        <div style={{ maxWidth: '100%' }}>
+  return (
+    <>
+      <div style={{ maxWidth: '100%' }}>
         <MaterialTable
           title="Basic Search Preview"
           columns={columns}
-          data={data}    
+          data={data}
           options={{
             search: true
           }}
           icons={tableIcons}
         />
       </div>
-        </>
-    )
+    </>
+  )
 }
 
 export default MaterialTableExample;
