@@ -64,7 +64,9 @@ function MaterialTableExample() {
   const data = [
     { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
     { name: 'Zerya Betul', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-    { program: 'A Way Out Recovery', city: 'Shakopee', zip: 55379 - 1749, parentProgram: 'A Way Out Recovery', familyRecoveryHousing: false, men: true, women: true}
+    { program: 'A Way Out Recovery', city: 'Shakopee', zip: 55379 - 1749, parentProgram: 'A Way Out Recovery', familyRecoveryHousing: false, men: true, women: true},
+    { id: 2, program: 'Abria Recovery', city: 'Burnsville', zip: 55337-2377, parentProgram: 'Abria Recovery', familyRecoveryHousing: false, men: true, women: true},
+        { id: 3, program: 'ANEW', city: 'Saint Paul', zip: 55106-6140, parentProgram: 'Spence Specialties LLC Anew', familyRecoveryHousing: true, men: false, women: true},
   ];
 
   return (
