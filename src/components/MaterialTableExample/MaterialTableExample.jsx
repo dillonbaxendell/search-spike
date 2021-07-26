@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import MaterialTable from 'material-table';
 
-// material ui
+// material ui icons
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -21,6 +21,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 
 function MaterialTableExample() {
 
+  // must have or icons won't show up in table and it will look terrible
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -41,13 +42,23 @@ function MaterialTableExample() {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
   };
 
-
+// none of these width properties are working fyi
   const columns = [
-    { field: 'program', title: 'Program', width: 120 },
-    { field: 'city', title: 'City', width: 110 },
+    { field: 'program', title: 'Program', filtering: false },
+    {
+      field: 'city', title: 'City', cellStyle: {
+        width: 200,
+        maxWidth: 200
+      },
+      headerStyle: {
+        width: 200,
+        maxWidth: 200
+      }
+    },
     { field: 'zip', title: 'Zip', width: 110 },
-    { field: 'parentProgram', title: 'Parent Program', width: 110 },
+    { field: 'parentProgram', title: 'Parent Program', width: '50%' },
     { field: 'familyRecoveryHousing', title: 'Family Recovery Housing', width: 110 },
+    { field: 'familyTreatmentProgramming', title: 'Family Treatment Programming', width: 110 },
     { field: 'men', title: 'Men', width: 110 },
     { field: 'women', title: 'Women', width: 110 },
 
@@ -64,21 +75,29 @@ function MaterialTableExample() {
   const data = [
     { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
     { name: 'Zerya Betul', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-    { program: 'A Way Out Recovery', city: 'Shakopee', zip: 55379 - 1749, parentProgram: 'A Way Out Recovery', familyRecoveryHousing: false, men: true, women: true},
-    { id: 2, program: 'Abria Recovery', city: 'Burnsville', zip: 55337-2377, parentProgram: 'Abria Recovery', familyRecoveryHousing: false, men: true, women: true},
-        { id: 3, program: 'ANEW', city: 'Saint Paul', zip: 55106-6140, parentProgram: 'Spence Specialties LLC Anew', familyRecoveryHousing: true, men: false, women: true},
+    { program: 'A Way Out Recovery', city: 'Shakopee', zip: 55379 - 1749, parentProgram: 'A Way Out Recovery', men: 'men', women: 'women' },
+    { id: 2, program: 'Abria Recovery', city: 'Burnsville', zip: 55337 - 2377, parentProgram: 'Abria Recovery', men: 'men', women: 'women' },
+    { id: 3, program: 'ANEW', city: 'Saint Paul', zip: 55106 - 6140, parentProgram: 'Spence Specialties LLC Anew', familyRecoveryHousing: 'Family Recovery Housing', women: 'women' },
+    { id: 4, program: 'Anthony Louis Center', city: 'Burnsville', zip: 55376, parentProgram: 'On-belay of Minnesota Inc dba Anthony', familyTreatmentProgramming: 'Family Treatment Programming', men: 'men', women: 'women' },
   ];
+
+  const options = {
+    search: true,
+    paging: false,
+    exportButton: true,
+    filtering: true
+    // tableLayout: 'fixed',
+  };
 
   return (
     <>
-      <div style={{ maxWidth: '100%' }}>
+      <div>
+        {/* <div style={{ maxWidth: '100%' }}> */}
         <MaterialTable
-          title="Basic Search Preview"
+          title="Providers"
           columns={columns}
           data={data}
-          options={{
-            search: true
-          }}
+          options={options}
           icons={tableIcons}
         />
       </div>
